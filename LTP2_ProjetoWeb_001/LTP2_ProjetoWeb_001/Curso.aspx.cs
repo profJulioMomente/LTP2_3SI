@@ -12,7 +12,10 @@ namespace LTP2_ProjetoWeb_001
         conectCurso C = new conectCurso();
         protected void Page_Load(object sender , EventArgs e)
         {
-            
+            if (VisualizarCursos.ID != 0)
+            {
+                preencherFormulario();
+            }
         }
 
         protected void btnSalvar_Click(object sender , EventArgs e)
@@ -25,9 +28,31 @@ namespace LTP2_ProjetoWeb_001
             C.Duracao_Curso = txtDuracao.Text;
             C.Enade_Curso = txtEnade.Text;
 
-            C.InserirCurso();
+            if (C.ID_Curso == 0)
+            {
+                C.InserirCurso();
+            } else
+            {
+                C.alterarItem();
+            }
 
-            lblSucesso.Text = "Curso Inserido com sucesso!";
+            //lblSucesso.Text = "Curso Inserido com sucesso!";
+            Response.Redirect("VisualizarCursos.aspx");
+
+        }
+
+        public void preencherFormulario()
+        {
+            int ID = VisualizarCursos.ID;
+
+            C.configurarConexao();
+            C = C.retornarItem(ID);
+
+            txtCodido.Text = C.Codigo_Curso;
+            txtCurso.Text = C.Nome_Curso;
+            txtPeriodo.Text = C.Periodo_Curso;
+            txtDuracao.Text = C.Duracao_Curso;
+            txtEnade.Text = C.Enade_Curso;
         }
     }
 }
