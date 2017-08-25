@@ -12,9 +12,12 @@ namespace LTP2_ProjetoWeb_001
         conectCurso C = new conectCurso();
         protected void Page_Load(object sender , EventArgs e)
         {
-            if (VisualizarCursos.ID != 0)
+            if (!IsPostBack)
             {
-                preencherFormulario();
+                if (VisualizarCursos.ID != 0)
+                {
+                    preencherFormulario();
+                }
             }
         }
 
@@ -22,17 +25,20 @@ namespace LTP2_ProjetoWeb_001
         {
             C.configurarConexao();
 
+            string test = txtDuracao.Text;
+
             C.Codigo_Curso = txtCodido.Text;
             C.Nome_Curso = txtCurso.Text;
             C.Periodo_Curso = txtPeriodo.Text;
             C.Duracao_Curso = txtDuracao.Text;
             C.Enade_Curso = txtEnade.Text;
 
-            if (C.ID_Curso == 0)
+            if (VisualizarCursos.ID == 0)
             {
                 C.InserirCurso();
             } else
             {
+                C.ID_Curso = VisualizarCursos.ID;
                 C.alterarItem();
             }
 
