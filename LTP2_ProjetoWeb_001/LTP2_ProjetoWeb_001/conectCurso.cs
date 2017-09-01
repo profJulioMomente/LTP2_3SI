@@ -197,6 +197,23 @@ namespace LTP2_ProjetoWeb_001
 
             fecharConexao();
         }
-    
+
+        public void excluirItem()
+        {
+            abrirConexao(); //Abrindo a conexão
+
+            //String que armazena a consulta que será realizada
+            string query = "DELETE FROM curso "
+                          + "WHERE ID_Curso=" + ID_Curso;
+
+            //Cria o comando associado à conexão
+            MySqlCommand comando = new MySqlCommand(query , connection);
+
+            //Executa o comando na base de dados
+            comando.ExecuteNonQuery();
+
+            fecharConexao();
+        }
+
     }
 }

@@ -12,6 +12,9 @@
             <h3>Cursos</h3>
             <br />
             <br />
+            <a href="Curso.aspx" target="_self">Cadastrar novo Curso</a>
+            <br />
+            <br />
             <asp:GridView ID="tabelaCursos" runat="server" AutoGenerateColumns="false" OnRowCommand="tabelaCursos_RowCommand">
                 <Columns>
                     <asp:TemplateField HeaderText="Ações">
@@ -20,6 +23,9 @@
                             Editar
                             </asp:LinkButton>
                             &nbsp
+                            <asp:LinkButton ID="Excluir" runat="server" CommandName="excluir" CommandArgument='<%# Eval("ID_Curso") %>' ToolTip="Editar Usuário">
+                            Excluir
+                            </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField HeaderText="Código" DataField="Codigo_Curso" />

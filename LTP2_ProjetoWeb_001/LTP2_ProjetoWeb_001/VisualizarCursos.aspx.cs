@@ -30,7 +30,20 @@ namespace LTP2_ProjetoWeb_001
         {
             ID = Convert.ToInt32(e.CommandArgument);
 
-            Response.Redirect("Curso.aspx");
+            if(e.CommandName == "editar")
+            {
+                Response.Redirect("Curso.aspx");
+            }
+            if (e.CommandName == "excluir")
+            {
+                conectCurso C = new conectCurso();
+                C.ID_Curso = ID;
+                C.configurarConexao();
+                C.excluirItem();
+
+                Response.Redirect("VisualizarCursos.aspx");
+            }
+
         }
     }
 }
