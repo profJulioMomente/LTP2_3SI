@@ -29,7 +29,7 @@ namespace LTP2_ProjetoWeb_001
         protected void tabelaCursos_RowCommand(object sender , GridViewCommandEventArgs e)
         {
             ID = Convert.ToInt32(e.CommandArgument);
-
+            
             if(e.CommandName == "editar")
             {
                 Response.Redirect("Curso.aspx");
@@ -40,6 +40,7 @@ namespace LTP2_ProjetoWeb_001
                 C.ID_Curso = ID;
                 C.configurarConexao();
                 C.excluirItem();
+
 
                 Response.Redirect("VisualizarCursos.aspx");
             }
