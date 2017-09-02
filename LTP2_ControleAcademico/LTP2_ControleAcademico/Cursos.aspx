@@ -34,10 +34,10 @@
             <a id="lknAdicionar" href="NovoCurso.aspx" class="btn btn-default">Adicionar Novo</a>
         </div>
         <form id="form1" runat="server">
-            <div>
+            <div style="padding-left:150px">
                 <br />
                 <br />
-                <asp:GridView ID="gdvCursos" runat="server" AutoGenerateColumns="false" CssClass="table" EmptyDataText="Não há cursos Cadastrados" OnRowCommand="gdvCursos_RowCommand">
+                <asp:GridView ID="gdvCursos" runat="server" AutoGenerateColumns="false" Width="80%" CssClass="table table-hover table-responsive" GridLines="None" EmptyDataText="Não há cursos Cadastrados" OnRowCommand="gdvCursos_RowCommand">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
