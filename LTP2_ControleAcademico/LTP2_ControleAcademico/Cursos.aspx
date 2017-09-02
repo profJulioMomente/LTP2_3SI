@@ -35,7 +35,9 @@
         </div>
         <form id="form1" runat="server">
             <div>
-                <asp:GridView ID="gdvCursos" runat="server" AutoGenerateColumns="false" CssClass="table table-striped" EmptyDataText="Não há cursos Cadastrados" OnRowCommand="gdvCursos_RowCommand">
+                <br />
+                <br />
+                <asp:GridView ID="gdvCursos" runat="server" AutoGenerateColumns="false" CssClass="table" EmptyDataText="Não há cursos Cadastrados" OnRowCommand="gdvCursos_RowCommand">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>

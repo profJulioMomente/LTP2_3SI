@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LTP2_ControleAcademico.Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,36 +12,40 @@ namespace LTP2_ControleAcademico
     {
         protected void Page_Load(object sender , EventArgs e)
         {
-            //ID = 0;
-            preencher_dados();
+            if (!IsPostBack)
+            {
+                Session["Curso"] = "0";
+                preencher_dados();
+            }
         }
 
         private void preencher_dados()
         {
-            //conectCurso C = new conectCurso();
-            //C.configurarConexao();
+            rnCurso C = new rnCurso();
 
-            //tabelaCursos.DataSource = C.visualizarCursos();
-            //tabelaCursos.DataBind();
+            gdvCursos.DataSource = C.recuperarCursos("");
+            gdvCursos.DataBind();
+
+            
         }
 
         protected void gdvCursos_RowCommand(object sender , GridViewCommandEventArgs e)
         {
-            //ID = Convert.ToInt32(e.CommandArgument);
+            
 
-            //if (e.CommandName == "editar")
-            //{
-            //    Response.Redirect("Curso.aspx");
-            //}
-            //if (e.CommandName == "excluir")
-            //{
-            //    conectCurso C = new conectCurso();
-            //    C.ID_Curso = ID;
-            //    C.configurarConexao();
-            //    C.excluirItem();
-
-            //    Response.Redirect("VisualizarCursos.aspx");
-            //}
+            if (e.CommandName == "editar")
+            {
+                Session["Curso"] = e.CommandArgument;
+                Response.Redirect("NovoCurso.aspx");
+            }
+            if (e.CommandName == "excluir")
+            {
+                rnCurso C = new rnCurso();
+                C.ID_Curso = Convert.ToInt32(e.CommandArgument);
+                C.excluir();
+                
+                Response.Redirect("Cursos.aspx");
+            }
         }
     }
 }

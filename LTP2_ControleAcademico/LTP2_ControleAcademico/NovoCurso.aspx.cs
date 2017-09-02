@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LTP2_ControleAcademico.Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,52 +14,49 @@ namespace LTP2_ControleAcademico
         {
             if (!IsPostBack)
             {
-                //if (VisualizarCursos.ID != 0)
-                //{
-                //    preencherFormulario();
-                //}
+                if (Session["Curso"].ToString() != "0")
+                {
+                    preencherFormulario();
+                }
             }
         }
 
         protected void btnSalvar_Click(object sender , EventArgs e)
         {
-            //C.configurarConexao();
+            rnCurso C = new rnCurso();
 
-            //string test = txtDuracao.Text;
+            C.Codigo = txtCodido.Text;
+            C.Nome = txtCurso.Text;
+            C.Periodo = txtPeriodo.Text;
+            C.Duracao = txtDuracao.Text;
+            C.Enade = txtEnade.Text;
 
-            //C.Codigo_Curso = txtCodido.Text;
-            //C.Nome_Curso = txtCurso.Text;
-            //C.Periodo_Curso = txtPeriodo.Text;
-            //C.Duracao_Curso = txtDuracao.Text;
-            //C.Enade_Curso = txtEnade.Text;
-
-            //if (VisualizarCursos.ID == 0)
-            //{
-            //    C.InserirCurso();
-            //}
-            //else
-            //{
-            //    C.ID_Curso = VisualizarCursos.ID;
-            //    C.alterarItem();
-            //}
-
+            if (Session["Curso"].ToString() == "0")
+            {
+                C.inserir();
+            }
+            else
+            {
+                C.ID_Curso = Convert.ToInt32( Session["Curso"]);
+                C.alterar();
+            }
+            
             ////lblSucesso.Text = "Curso Inserido com sucesso!";
-            //Response.Redirect("VisualizarCursos.aspx");
+            Response.Redirect("Cursos.aspx");
 
         }
 
         public void preencherFormulario()
         {
-            //int ID = VisualizarCursos.ID;
-
-            //C.configurarConexao();
-            //C = C.retornarItem(ID);
-
-            //txtCodido.Text = C.Codigo_Curso;
-            //txtCurso.Text = C.Nome_Curso;
-            //txtPeriodo.Text = C.Periodo_Curso;
-            //txtDuracao.Text = C.Duracao_Curso;
-            //txtEnade.Text = C.Enade_Curso;
+            rnCurso C = new rnCurso();
+            C.ID_Curso = Convert.ToInt32(Session["Curso"]);
+            C.recuperarRegistro();
+            
+            txtCodido.Text = C.Codigo;
+            txtCurso.Text = C.Nome;
+            txtPeriodo.Text = C.Periodo;
+            txtDuracao.Text = C.Duracao;
+            txtEnade.Text = C.Enade;
         }
     }
 }
