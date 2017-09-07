@@ -47,5 +47,26 @@ namespace LTP2_ControleAcademico
                 Response.Redirect("Cursos.aspx");
             }
         }
+
+        protected void btnBuscar_Click(object sender , EventArgs e)
+        {
+            rnCurso C = new rnCurso();
+            string valorBusca = txtBusca.Text;
+            if (!String.IsNullOrEmpty(valorBusca))
+            {
+                string query = "Nome_Curso LIKE '%" + valorBusca + "%'";
+
+                gdvCursos.DataSource = null;
+
+                
+                gdvCursos.DataSource = C.recuperarCursos(query);
+                gdvCursos.DataBind();
+            }
+            else
+            {
+                gdvCursos.DataSource = C.recuperarCursos("");
+                gdvCursos.DataBind();
+            }
+        }
     }
 }

@@ -34,7 +34,17 @@
             <a id="lknAdicionar" href="NovoCurso.aspx" class="btn btn-default">Adicionar Novo</a>
         </div>
         <form id="form1" runat="server">
-            <div style="padding-left:150px">
+            <div style="padding-left: 150px">
+                <br />
+                <br />
+                <div style="text-align: center" class="row">
+                    <div class="col-md-8">
+                        <asp:TextBox ID="txtBusca" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="col-md-2">
+                        <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-default" Text="Buscar" OnClick="btnBuscar_Click" />
+                    </div>
+                </div>
                 <br />
                 <br />
                 <asp:GridView ID="gdvCursos" runat="server" AutoGenerateColumns="false" Width="80%" CssClass="table table-hover table-responsive" GridLines="None" EmptyDataText="Não há cursos Cadastrados" OnRowCommand="gdvCursos_RowCommand">
