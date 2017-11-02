@@ -7,13 +7,13 @@ namespace LTP2_MVC_Exemplo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AdicaoCursos : IMigrationMetadata
+    public sealed partial class Alunos_NparaN : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AdicaoCursos));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Alunos_NparaN));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710050054581_AdicaoCursos"; }
+            get { return "201710202329501_Alunos_NparaN"; }
         }
         
         string IMigrationMetadata.Source

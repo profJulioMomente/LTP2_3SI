@@ -1,0 +1,42 @@
+﻿@model LTP2_MVC_Exemplo.Models.Coordenacao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Coordenacao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.codigo_curso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Curso.codigo_curso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_Coordenacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome_Coordenacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.atendimento_Coordenacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.atendimento_Coordenacao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Coordenacao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

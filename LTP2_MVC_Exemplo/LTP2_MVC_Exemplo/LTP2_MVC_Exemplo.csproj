@@ -196,7 +196,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlunosController.cs" />
+    <Compile Include="Controllers\CoordenacoesController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\DisciplinasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -206,13 +209,28 @@
     <Compile Include="Migrations\201710050035523_InitialCreate.Designer.cs">
       <DependentUpon>201710050035523_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710050054581_AdicaoCursos.cs" />
-    <Compile Include="Migrations\201710050054581_AdicaoCursos.Designer.cs">
-      <DependentUpon>201710050054581_AdicaoCursos.cs</DependentUpon>
+    <Compile Include="Migrations\201710182344430_Curso_Coordenacao_Relacao.cs" />
+    <Compile Include="Migrations\201710182344430_Curso_Coordenacao_Relacao.Designer.cs">
+      <DependentUpon>201710182344430_Curso_Coordenacao_Relacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710182359372_Disciplinas.cs" />
+    <Compile Include="Migrations\201710182359372_Disciplinas.Designer.cs">
+      <DependentUpon>201710182359372_Disciplinas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710202315189_AdicaoAlunos.cs" />
+    <Compile Include="Migrations\201710202315189_AdicaoAlunos.Designer.cs">
+      <DependentUpon>201710202315189_AdicaoAlunos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710202329501_Alunos_NparaN.cs" />
+    <Compile Include="Migrations\201710202329501_Alunos_NparaN.Designer.cs">
+      <DependentUpon>201710202329501_Alunos_NparaN.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Aluno.cs" />
+    <Compile Include="Models\Coordenacao.cs" />
     <Compile Include="Models\Curso.cs" />
+    <Compile Include="Models\Disciplina.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -276,11 +294,26 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Coordenacoes\Create.cshtml" />
+    <Content Include="Views\Coordenacoes\Delete.cshtml" />
+    <Content Include="Views\Coordenacoes\Details.cshtml" />
+    <Content Include="Views\Coordenacoes\Edit.cshtml" />
+    <Content Include="Views\Coordenacoes\Index.cshtml" />
     <Content Include="Views\Cursos\Create.cshtml" />
     <Content Include="Views\Cursos\Delete.cshtml" />
     <Content Include="Views\Cursos\Details.cshtml" />
     <Content Include="Views\Cursos\Edit.cshtml" />
     <Content Include="Views\Cursos\Index.cshtml" />
+    <Content Include="Views\Disciplinas\Create.cshtml" />
+    <Content Include="Views\Disciplinas\Delete.cshtml" />
+    <Content Include="Views\Disciplinas\Details.cshtml" />
+    <Content Include="Views\Disciplinas\Edit.cshtml" />
+    <Content Include="Views\Disciplinas\Index.cshtml" />
+    <Content Include="Views\Alunos\Create.cshtml" />
+    <Content Include="Views\Alunos\Delete.cshtml" />
+    <Content Include="Views\Alunos\Details.cshtml" />
+    <Content Include="Views\Alunos\Edit.cshtml" />
+    <Content Include="Views\Alunos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,8 +330,17 @@
     <EmbeddedResource Include="Migrations\201710050035523_InitialCreate.resx">
       <DependentUpon>201710050035523_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710050054581_AdicaoCursos.resx">
-      <DependentUpon>201710050054581_AdicaoCursos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710182344430_Curso_Coordenacao_Relacao.resx">
+      <DependentUpon>201710182344430_Curso_Coordenacao_Relacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710182359372_Disciplinas.resx">
+      <DependentUpon>201710182359372_Disciplinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710202315189_AdicaoAlunos.resx">
+      <DependentUpon>201710202315189_AdicaoAlunos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710202329501_Alunos_NparaN.resx">
+      <DependentUpon>201710202329501_Alunos_NparaN.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

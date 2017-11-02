@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LTP2_MVC_Exemplo.Models.Aluno>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome_Aluno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ra_Aluno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email_Aluno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome_Aluno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ra_Aluno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email_Aluno)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Aluno }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Aluno }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Aluno })
+        </td>
+    </tr>
+}
+
+</table>

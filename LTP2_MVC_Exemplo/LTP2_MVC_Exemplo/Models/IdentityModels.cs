@@ -31,5 +31,11 @@ namespace LTP2_MVC_Exemplo.Models
         }
 
         public System.Data.Entity.DbSet<LTP2_MVC_Exemplo.Models.Curso> Cursoes { get; set; }
+
+        public System.Data.Entity.DbSet<LTP2_MVC_Exemplo.Models.Coordenacao> Coordenacaos { get; set; }
+
+        public System.Data.Entity.DbSet<LTP2_MVC_Exemplo.Models.Disciplina> Disciplinas { get; set; }
+
+        public System.Data.Entity.DbSet<LTP2_MVC_Exemplo.Models.Aluno> Alunoes { get; set; }
     }
 }

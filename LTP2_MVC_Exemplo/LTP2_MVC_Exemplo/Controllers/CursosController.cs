@@ -17,7 +17,8 @@ namespace LTP2_MVC_Exemplo.Controllers
         // GET: Cursos
         public ActionResult Index()
         {
-            return View(db.Cursoes.ToList());
+            var cursoes = db.Cursoes.Include(c => c.Coord);
+            return View(cursoes.ToList());
         }
 
         // GET: Cursos/Details/5
@@ -38,6 +39,7 @@ namespace LTP2_MVC_Exemplo.Controllers
         // GET: Cursos/Create
         public ActionResult Create()
         {
+            ViewBag.id_curso = new SelectList(db.Coordenacaos, "id_Coordenacao", "nome_Coordenacao");
             return View();
         }
 
@@ -55,6 +57,7 @@ namespace LTP2_MVC_Exemplo.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.id_curso = new SelectList(db.Coordenacaos, "id_Coordenacao", "nome_Coordenacao", curso.id_curso);
             return View(curso);
         }
 
@@ -70,6 +73,7 @@ namespace LTP2_MVC_Exemplo.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.id_curso = new SelectList(db.Coordenacaos, "id_Coordenacao", "nome_Coordenacao", curso.id_curso);
             return View(curso);
         }
 
@@ -86,6 +90,7 @@ namespace LTP2_MVC_Exemplo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.id_curso = new SelectList(db.Coordenacaos, "id_Coordenacao", "nome_Coordenacao", curso.id_curso);
             return View(curso);
         }
 
