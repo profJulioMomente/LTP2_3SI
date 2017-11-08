@@ -24,6 +24,7 @@ namespace LTP2_MVC_Exemplo.Models
         [Display (Name= "E-mail")]
         public string email_Aluno { get; set; }
 
-       
+        public ICollection<AlunoDisciplina> AlunoDisciplina { get; set; }
+
     }
 }

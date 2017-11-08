@@ -1,0 +1,40 @@
+﻿@model LTP2_MVC_Exemplo.Models.AlunoDisciplina
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AlunoDisciplina</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Aluno.nome_Aluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aluno.nome_Aluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disciplina.nome_Disciplia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disciplina.nome_Disciplia)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

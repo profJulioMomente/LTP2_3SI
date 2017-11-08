@@ -1,0 +1,34 @@
+﻿@model LTP2_MVC_Exemplo.Models.AlunoDisciplina
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AlunoDisciplina</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Aluno.nome_Aluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aluno.nome_Aluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disciplina.nome_Disciplia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disciplina.nome_Disciplia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_AlunoDisciplina }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

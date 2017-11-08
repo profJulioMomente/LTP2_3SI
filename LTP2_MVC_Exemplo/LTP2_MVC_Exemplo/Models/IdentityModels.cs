@@ -38,5 +38,6 @@ namespace LTP2_MVC_Exemplo.Models
 
         public System.Data.Entity.DbSet<LTP2_MVC_Exemplo.Models.Aluno> Alunoes { get; set; }
 
+        public System.Data.Entity.DbSet<LTP2_MVC_Exemplo.Models.AlunoDisciplina> AlunoDisciplinas { get; set; }
     }
 }

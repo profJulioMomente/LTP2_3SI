@@ -106,6 +106,12 @@ namespace LTP2_MVC_Exemplo.Controllers
             {
                 return HttpNotFound();
             }
+            AlunoDisciplina AD = db.AlunoDisciplinas.Where(x => x.Disciplina.id_Disciplina == id).FirstOrDefault();
+            if(AD != null)
+            {
+                return RedirectToAction("Index", new { exc = false });
+            }
+
             return View(disciplina);
         }
 

@@ -23,7 +23,7 @@ namespace LTP2_MVC_Exemplo.Models
 
         public virtual Curso Curso { get; set; }
 
-        public ICollection<AlunoDisciplina>
+        public ICollection<AlunoDisciplina> AlunoDisciplina { get; set; }
 
     }
 }

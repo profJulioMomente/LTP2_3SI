@@ -6,8 +6,13 @@
 
 <h2>Index</h2>
 
+@if (@Request.QueryString["exc"] == "False")
+{
+    <script>alert("Não é possível excluir esta disciplina");</script>
+}
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New" , "Create")
 </p>
 <table class="table">
     <tr>
@@ -26,26 +31,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Curso.codigo_curso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nome_Disciplia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.codigo_Disciplina)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.periodo_Disciplina)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_Disciplina }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_Disciplina }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_Disciplina })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.codigo_curso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_Disciplia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo_Disciplina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.periodo_Disciplina)
+            </td>
+            <td>
+                @Html.ActionLink("Edit" , "Edit" , new { id = item.id_Disciplina }) |
+                @Html.ActionLink("Details" , "Details" , new { id = item.id_Disciplina }) |
+                @Html.ActionLink("Delete" , "Delete" , new { id = item.id_Disciplina })
+            </td>
+        </tr>
+    }
 
 </table>
