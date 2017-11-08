@@ -16,7 +16,6 @@ namespace LTP2_MVC_Exemplo.Models
         [Display (Name ="Nome")]
         public string nome_Aluno { get; set; }
         
-        [Index(IsUnique =true)]
         [Display (Name ="RA")]
         public string ra_Aluno { get; set; }
 
@@ -25,11 +24,6 @@ namespace LTP2_MVC_Exemplo.Models
         [Display (Name= "E-mail")]
         public string email_Aluno { get; set; }
 
-        public virtual ICollection<Disciplina> Disciplinas { get; set; }
-
-        public Aluno()
-        {
-            Disciplinas = new HashSet<Disciplina>();
-        }
+       
     }
 }

@@ -17,7 +17,7 @@ namespace LTP2_MVC_Exemplo.Controllers
         // GET: Alunos
         public ActionResult Index()
         {
-            return View();
+            return View(db.Alunoes.ToList());
         }
 
         // GET: Alunos/Details/5

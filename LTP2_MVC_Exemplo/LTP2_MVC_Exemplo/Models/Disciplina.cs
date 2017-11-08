@@ -23,12 +23,7 @@ namespace LTP2_MVC_Exemplo.Models
 
         public virtual Curso Curso { get; set; }
 
-        public virtual ICollection<Aluno> Alunos { get; set; }
+        public ICollection<AlunoDisciplina>
 
-        public Disciplina()
-        {
-
-            Alunos = new HashSet<Aluno>();
-        }
     }
 }
