@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			.Texto{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<h2> Javascript </h2>
+		<p id="par01"> Primeiro parágrafo</p>
+		<p id="par01"> Segundo parágrafo</p>
+		<p class="Texto"> Terceiro parágrafo</p>
+		
+		<script type="text/javascript">
+		debugger;
+			var p01 = document.getElementById("par01");
+			var p02 = document.getElementsByTagName("p");
+			var p03 = document.getElementsByClassName("Texto");
+			
+			console.log(p01);
+			console.log(p02);
+			console.log(p03);
+			console.log(3/2);
+			
+			var newPar = document.createElement("p");
+			newPar.innerText = "Parágrafo criado";
+			var corpo = document.getElementsByTagName("body")[0];
+			corpo.appendChild(newPar);
+			
+			corpo.replaceChild(newPar, p01);
+		</script>
+		
+	</body>
+</html>
