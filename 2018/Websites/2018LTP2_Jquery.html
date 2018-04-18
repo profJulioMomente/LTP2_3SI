@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <style type="text/css">
+        .Exemplo{
+            color:darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="div00">
+        <h2> Título da seção</h2>
+        <p id="p01" class="Exemplo"> Lorem ipsum sit dolor amet ...</p>
+        <p id="p02"> Informações adicionais do conteúdo da página</p>
+        <p id="p03"> Texto </p>
+    </div>
+    <div id="div01">
+        Texto: <input id="Text1" type="text"  style="display:inline-block"/>
+        <input type="button" value="Copiar" onclick="copiarTextoFormulario();" style="display:inline-block;" />
+        <hr />
+        <input id="Button1" type="button" value="Click Aqui" onclick="funcaoJquery();" style="display:block;"/>
+    </div>
+    <input id="btnApagar" type="button" value="Apagar" onclick="apagarConteudos();" style="display:block;" />
+    <br/>
+    <input id="btnCss" type="button" value="Css" onclick="manipularCss();" style="display:block; border-width:10px" />
+    <br />
+    <input id="btnDimensoes" type="button" value="Dimensoes" onclick="mudarDimensoes();" style="display:block;" />
+    <script type="text/javascript">
+        function funcaoJquery() {
+
+            //$("#p03").text("Texto adicionado");
+            //$("#p03").html("Texto <br/> adicionado");
+
+            var texto1 = $("#p01").text(); //get
+            $("#p03").text(texto1); //set
+
+            alert($("#Text1").attr("style")); //get
+            $("#p01").attr("style", "color:blue;");//set
+        }
+
+        function copiarTextoFormulario() {
+            //var conteudo = $("#Text1").val();
+            //$("#p03").text(conteudo);
+
+            //var conteudo = $("#p02").text();
+            //$("#Text1").val(conteudo);
+
+            var conteudo = $("#Text1").val();
+            $("#div00").before("<p id='p04'>" + conteudo + "</p>");
+        }
+
+        function apagarConteudos() {
+            $("#div00").empty();
+        }
+
+        function manipularCss() {
+            debugger;
+            //$("#p01").removeClass("Exemplo");
+            $("#p02").addClass("Exemplo");
+            $("#p03").toggleClass("Exemplo");
+            var estilo = ("#p01").
+            alert(estilo);
+        }
+
+        function mudarDimensoes() {
+            $("#btnCss").height(30);
+            $("#btnCss").innerHeight(50);
+            alert($("#btnCss").outerHeight(true));
+
+
+        }
+    </script>
+</body>
+</html>
