@@ -25,7 +25,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#txtNome").change(function () {
-                var conteudo = $(this).val().replace(/[^0-9]+/gi, "");
+                rExp = new RegExp("[a-z]", "gi");
+                var conteudo = $(this).val().replace(rExp, "0");
                 $(this).val(conteudo);
                 
             });
