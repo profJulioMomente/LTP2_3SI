@@ -35,6 +35,13 @@
                 var conteudo = $(this).val().split(/abc/,2);
                 //alert(conteudo);
             });
+
+            $("#txtNumero").keypress(function () {
+                var numero = $(this).val();
+                numero = numero.replace(/\D/g, "");
+                numero = numero.replace(/(\d+)(\d{1,2})$/, "$1,$2");
+                $(this).val(numero);
+            });
         });
     </script>
 
