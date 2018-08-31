@@ -15,6 +15,10 @@ namespace LTP2_ControleAcademico
         {
             if (!IsPostBack)
             {
+                if (Session["Disciplina"] != null && !String.IsNullOrEmpty(Session["Disciplina"].ToString()))
+                {
+
+                }
                 carregarCursos();
                 if (Session["Disciplina"].ToString() != "0")
                 {
@@ -67,6 +71,9 @@ namespace LTP2_ControleAcademico
         {
             rnDisciplina D = new rnDisciplina();
             //D.ID_Disciplina = Convert.ToInt32(Session["Disciplina"]);
+
+            D.ID_Disciplina = Convert.ToInt32(Session["Disciplina"]);
+
             D.recuperarRegistro();
 
             txtCodido.Text = D.Codigo_Disciplina;

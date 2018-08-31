@@ -47,15 +47,22 @@
                 </div>
                 <br />
                 <br />
-                <asp:GridView ID="gdvDisciplinas" runat="server" AutoGenerateColumns="false" Width="80%" CssClass="table table-hover table-responsive" GridLines="None" EmptyDataText="Não há disciplinas Cadastrados" OnRowCommand="gdvDisciplinas_RowCommand">
+                <asp:GridView ID="gdvDisciplinas" runat="server" 
+                    AutoGenerateColumns="false" Width="80%" 
+                    CssClass="table table-hover table-responsive" GridLines="None" 
+                    EmptyDataText="Não há disciplinas Cadastrados" 
+                    OnRowCommand="gdvDisciplinas_RowCommand">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton ID="Editar" runat="server" CommandName="editar" CommandArgument='<%# Eval("ID_Disciplina") %>' ToolTip="Editar Curso">
+                                <asp:LinkButton ID="Editar" runat="server" CommandName="editar" 
+                                    CommandArgument='<%# Eval("ID_Disciplina") %>' 
+                                    ToolTip="Editar Curso">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 </asp:LinkButton>
                                 &nbsp
-                            <asp:LinkButton ID="Excluir" runat="server" CommandName="excluir" CommandArgument='<%# Eval("ID_Disciplina") %>' ToolTip="Excluir Curso">
+                            <asp:LinkButton ID="Excluir" runat="server" CommandName="excluir" 
+                                CommandArgument='<%# Eval("ID_Disciplina") %>' ToolTip="Excluir Curso">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </asp:LinkButton>
                             </ItemTemplate>

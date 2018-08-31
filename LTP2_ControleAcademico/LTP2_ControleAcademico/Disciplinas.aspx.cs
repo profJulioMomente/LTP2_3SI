@@ -54,7 +54,7 @@ namespace LTP2_ControleAcademico
         {
             if (e.CommandName == "editar")
             {
-                Session["Disciplina"] = e.CommandArgument;
+                Session["pessoa"] = e.CommandArgument;
                 Response.Redirect("NovaDisciplina.aspx");
             }
             if (e.CommandName == "excluir")

@@ -7,10 +7,10 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace LTP2_ControleAcademico {
+namespace Servidor_Email {
     
     
-    public partial class Disciplinas {
+    public partial class VisualizarEnderecos {
         
         /// <summary>
         /// Controle form1.
@@ -22,30 +22,12 @@ namespace LTP2_ControleAcademico {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Controle txtBusca.
+        /// Controle gdvEnderecos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBusca;
-        
-        /// <summary>
-        /// Controle btnBuscar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
-        /// <summary>
-        /// Controle gdvDisciplinas.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvDisciplinas;
+        protected global::System.Web.UI.WebControls.GridView gdvEnderecos;
     }
 }

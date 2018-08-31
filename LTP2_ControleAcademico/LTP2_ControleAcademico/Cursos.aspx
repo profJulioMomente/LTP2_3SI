@@ -38,7 +38,13 @@
                 <br />
                 <br />
                 <div style="text-align: center" class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-4">
+                        <asp:DropDownList ID="ddlCampo" runat="server">
+                            <asp:ListItem Text="Texto" Value="txt01" Selected="True"></asp:ListItem>
+
+                        </asp:DropDownList>
+                    </div>
+                    <div class="col-md-6">
                         <asp:TextBox ID="txtBusca" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div class="col-md-2">

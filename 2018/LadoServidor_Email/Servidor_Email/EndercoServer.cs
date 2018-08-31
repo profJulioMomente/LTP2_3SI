@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -44,6 +45,47 @@ namespace Servidor_Email
                 return false;
 
             }
+        }
+
+        public DataTable BuscarDados()
+        {
+            DataTable enderecos = new DataTable();
+
+            string query = "SELECT end.id, end.logradouro As Logradouro, end.numero As Número, cid.nome As Cidade, est.uf As Estado " +
+                "FROM endereco end INNER JOIN cidade cid ON cid.id = end.cidade INNER JOIN estado est ON end.estado = est.id";
+            try
+            {
+                if (!C.abrirConexao())
+                    throw new Exception("Erro de Abertura da conexão");
+
+                //Cria o comando associado à conexão
+                MySqlCommand comando = new MySqlCommand(query, C.connection);
+
+                //Cria e preenche com dados uma estrutura de reader com o retorno do select do sql
+                MySqlDataReader dataReader = comando.ExecuteReader();
+                if (dataReader.HasRows)
+                {
+                    enderecos.Load(dataReader);
+                }
+                else
+                    throw new Exception("Não trouxe resultados.");
+
+                //fechando a estrutura dataReader
+                dataReader.Close();
+
+                if (!C.fecharConexao())
+                    throw new Exception("Fechamento da conexão");
+
+            }
+            catch (MySqlException ex)
+            {
+                return null;
+            }
+
+            return enderecos;
+
+
+
         }
     }
 }
