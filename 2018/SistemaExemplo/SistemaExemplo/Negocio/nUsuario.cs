@@ -22,7 +22,7 @@ namespace SistemaExemplo.Negocio
                 Senha = Encriptacao.Encriptar(Senha);
 
                 string query = "INSERT INTO usuario (nome,email,cpf,sexo,dataNasc,senha,status) " +
-                                    "VALUES ('{Nome}','{Email}','{Cpf}','{Sexo}','{DataNasc}','{Senha}',1)";
+                                    "VALUES ('"+Nome+"','"+Email+"','"+Cpf+"','"+Sexo+"','"+DataNasc+"','"+Senha+"',1)";
                 erro = Conexao.ModificarTabela(query);
 
             }
@@ -117,6 +117,25 @@ namespace SistemaExemplo.Negocio
                 erro = exp.Message;
             }
             return erro;
+        }
+
+        public static bool ValidarLogin(string eMail, string senha)
+        {
+            bool retorno = false;
+            senha = Encriptacao.Encriptar(senha);
+
+            string query = "SELECT COUNT(*) As QtdUsr FROM usuario WHERE email = '" + eMail + "' AND senha = '" + senha + "' AND status = 1";
+
+            DataTable dt = new DataTable();
+            string erro = Conexao.CarregarTabela(query, dt);
+            if(erro == "")
+            {
+                if (dt.Rows[0]["QtdUsr"].ToString() == "1")
+                {
+                    retorno = true;
+                }
+            }
+            return retorno;
         }
     }
 }

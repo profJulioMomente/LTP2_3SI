@@ -9,7 +9,7 @@ namespace SistemaExemplo.Util
 {
     public static class Conexao
     {
-        private static readonly string stringConexao = "SERVER=localhost;DATABASE=2018_01;UID=ltp2;PASSWORD=ltp2;";
+        private static readonly string stringConexao = "SERVER=localhost;DATABASE=2018_01;UID=ltp2;PASSWORD=ltp2;SSLMode=none;";
         private static readonly MySqlConnection connection = new MySqlConnection(stringConexao);
 
         /// <summary>
