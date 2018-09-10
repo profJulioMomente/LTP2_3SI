@@ -47,13 +47,13 @@ namespace SistemaExemplo.Negocio
                 Senha = (!String.IsNullOrEmpty(Senha)) ? Encriptacao.Encriptar(Senha) : "";
 
                 string query = "UPDATE usuario " +
-                                "SET nome= {Nome}'," +
-                                    "email='{Email}'," +
-                                    "cpf='{Cpf}'," +
-                                    "sexo='{Sexo}'," +
-                                    "dataNasc='{DataNasc}'," +
-                                    "senha=IF('{Senha}'<>'','{Senha}',senha)) " +
-                               "WHERE id = {Id}";
+                                "SET nome= '"+Nome+"'," +
+                                    "email='"+Email+"'," +
+                                    "cpf='"+Cpf+"'," +
+                                    "sexo='"+Sexo+"'," +
+                                    "dataNasc='"+DataNasc+"'," +
+                                    "senha=IF('"+Senha+"'<>'','"+Senha+"',senha) " +
+                               "WHERE id = "+Id;
                 erro = Conexao.ModificarTabela(query);
             }
             catch (Exception exp)
@@ -73,7 +73,7 @@ namespace SistemaExemplo.Negocio
             string erro = "";
             try
             {
-                string query = "UPDATE usuario Set status = 0 WHERE id = '{Id}'";
+                string query = "UPDATE usuario Set status = 0 WHERE id = "+Id;
                 erro = Conexao.ModificarTabela(query);
             }
             catch (Exception exp)
@@ -109,7 +109,7 @@ namespace SistemaExemplo.Negocio
                                 "FROM usuario "+
                                 "WHERE status = 1 ";
                 if (coluna != "" && valor != "" && operador!="")
-                    query = query+"AND {coluna} {operador} '{valor}'";
+                    query = query+"AND "+ coluna + operador  + valor;
 
                 erro = Conexao.CarregarTabela(query, usuarios);
             } catch(Exception exp)

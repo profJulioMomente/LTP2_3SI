@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Controle Acadêmico</title>
+    <title>Cadastro de Usuários</title>
     <script type="text/javascript" src="Scripts/jquery-3.0.0.min.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
 
@@ -33,6 +33,8 @@
             <h3><strong>Cadastrar novo usuário</strong></h3>
         </div>
         <form id="form1" runat="server">
+            <div class="alert-success" id="divSucesso" style="display:none;" runat="server">Sucesso</div>
+            <div class="alert-danger" id="divErro" style ="display:none;" runat="server">Erro</div>
             <div class="row">
                 <div class="col-9" style="text-align: center">
                     <table style="border-collapse: separate; border-spacing: 10px; width: 100%">
@@ -49,7 +51,7 @@
                         <tr>
                             <td style="text-align: right; padding-right: 5px;">CPF:</td>
                             <td>
-                                <asp:TextBox ID="txtCPF" runat="server" CssClass="form-control" MaxLength="11" TextMode="Number"></asp:TextBox></td>
+                                <asp:TextBox ID="txtCPF" runat="server" CssClass="form-control" MaxLength="11"></asp:TextBox></td>
                         </tr>
                         <tr>
                             <td style="text-align: right; padding-right: 5px;">Data de nascimento:</td>
@@ -60,8 +62,8 @@
                             <td style="text-align: right; padding-right: 5px;">Sexo:</td>
                             <td>
                                 <asp:RadioButtonList ID="rblSexo" runat="server" >
-                                    <asp:ListItem Value="M" Selected="true"> Masculino</asp:ListItem>
-                                    <asp:ListItem Value="F"> Feminino</asp:ListItem>
+                                    <asp:ListItem Value="M" Selected="true">&nbsp;Masculino</asp:ListItem>
+                                    <asp:ListItem Value="F">&nbsp;Feminino</asp:ListItem>
                                 </asp:RadioButtonList></td>
                         </tr>
                         <tr>
@@ -73,10 +75,10 @@
             </div>
             <div class="row">
                 <div class="col-4" style="text-align:right">
-                    <asp:Button ID="btnSalvar" runat="server" CssClass="btn btn-info" OnClick="btnSalvar_Click" Text="Salvar" />
+                    <asp:Button ID="btnSalvar"  runat="server" CssClass="btn btn-info" OnClick="btnSalvar_Click" Text="Salvar" />
                 </div>
                 <div class="col-2" style="text-align:right" >
-                    <a id="btnVisualizar" href="cadastroUsuario.aspx" class="btn btn-info">Ver usuários</a>
+                    <a id="btnVisualizar" href="usuarios.aspx" class="btn btn-info">Ver usuários</a>
                 </div>
             </div>
         </form>
