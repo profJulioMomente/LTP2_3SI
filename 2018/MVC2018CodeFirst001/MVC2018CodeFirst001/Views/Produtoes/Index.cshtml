@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MVC2018CodeFirst001.Models.Produto>
+
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index","Produtoes",FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <select id="campo" name="campo">
+                <option>nome</option>
+                <option>descrição</option>
+            </select>
+            @Html.TextBox("pesquisa")
+            <input type="submit" value="Pesquisa" class="btn btn-default" />
+        </div>
+    </div>
+    
+
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.categoria.nomeCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomeProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricaoProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.preco)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoria.nomeCategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomeProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricaoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.preco)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idProduto, pesquisa="teste" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idProduto }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idProduto })
+            </td>
+        </tr>
+    }
+
+</table>

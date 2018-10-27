@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="53979845eb4f4dc6971ce98310048671" Name="Diagram1">
+        <EntityTypeShape EntityType="LTP2MVCDatabaseFirst2018Model.pessoa" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LTP2MVCDatabaseFirst2018Model.produto" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LTP2MVCDatabaseFirst2018Model.categoria" Width="1.5" PointX="0.75" PointY="4" />
+        <AssociationConnector Association="LTP2MVCDatabaseFirst2018Model.FK_produto_categoria" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

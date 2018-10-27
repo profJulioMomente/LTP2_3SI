@@ -1,0 +1,50 @@
+﻿@model LTP2DatabaseFirst.Models.pessoa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>pessoa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomePessoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomePessoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sobrenomePessoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sobrenomePessoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idadePessoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idadePessoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeMeioPessoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeMeioPessoa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idPessoa }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LTP2MVCDatabaseFirst2018Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeCategoria" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pessoa">
+          <Key>
+            <PropertyRef Name="idPessoa" />
+          </Key>
+          <Property Name="idPessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomePessoa" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="sobrenomePessoa" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="idadePessoa" Type="int" Nullable="false" />
+          <Property Name="nomeMeioPessoa" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="produto">
+          <Key>
+            <PropertyRef Name="idProduo" />
+          </Key>
+          <Property Name="idProduo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeProduto" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="descricaoProduto" Type="varchar" MaxLength="1000" />
+          <Property Name="precoProduto" Type="float" />
+          <Property Name="idCategoria" Type="int" />
+        </EntityType>
+        <Association Name="FK_produto_categoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+          <End Role="produto" Type="Self.produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="produto">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LTP2MVCDatabaseFirst2018ModelStoreContainer">
+          <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pessoa" EntityType="Self.pessoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="produto" EntityType="Self.produto" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_produto_categoria" Association="Self.FK_produto_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="produto" EntitySet="produto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LTP2MVCDatabaseFirst2018Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="pessoa">
+          <Key>
+            <PropertyRef Name="idPessoa" />
+          </Key>
+          <Property Name="idPessoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomePessoa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sobrenomePessoa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idadePessoa" Type="Int32" Nullable="false" />
+          <Property Name="nomeMeioPessoa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="produto">
+          <Key>
+            <PropertyRef Name="idProduo" />
+          </Key>
+          <Property Name="idProduo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeProduto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descricaoProduto" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="precoProduto" Type="Double" />
+          <Property Name="idCategoria" Type="Int32" />
+          <NavigationProperty Name="categoria" Relationship="LTP2MVCDatabaseFirst2018Model.FK_produto_categoria" FromRole="produto" ToRole="categoria" />
+        </EntityType>
+        <EntityContainer Name="LTP2MVCDatabaseFirst2018Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="pessoas" EntityType="Self.pessoa" />
+          <EntitySet Name="produtoes" EntityType="Self.produto" />
+          <EntitySet Name="categorias" EntityType="LTP2MVCDatabaseFirst2018Model.categoria" />
+          <AssociationSet Name="FK_produto_categoria" Association="LTP2MVCDatabaseFirst2018Model.FK_produto_categoria">
+            <End Role="categoria" EntitySet="categorias" />
+            <End Role="produto" EntitySet="produtoes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeCategoria" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="produtoes" Relationship="LTP2MVCDatabaseFirst2018Model.FK_produto_categoria" FromRole="categoria" ToRole="produto" />
+        </EntityType>
+        <Association Name="FK_produto_categoria">
+          <End Type="LTP2MVCDatabaseFirst2018Model.categoria" Role="categoria" Multiplicity="0..1" />
+          <End Type="LTP2MVCDatabaseFirst2018Model.produto" Role="produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="produto">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LTP2MVCDatabaseFirst2018ModelStoreContainer" CdmEntityContainer="LTP2MVCDatabaseFirst2018Entities">
+          <EntitySetMapping Name="pessoas">
+            <EntityTypeMapping TypeName="LTP2MVCDatabaseFirst2018Model.pessoa">
+              <MappingFragment StoreEntitySet="pessoa">
+                <ScalarProperty Name="nomeMeioPessoa" ColumnName="nomeMeioPessoa" />
+                <ScalarProperty Name="idPessoa" ColumnName="idPessoa" />
+                <ScalarProperty Name="nomePessoa" ColumnName="nomePessoa" />
+                <ScalarProperty Name="sobrenomePessoa" ColumnName="sobrenomePessoa" />
+                <ScalarProperty Name="idadePessoa" ColumnName="idadePessoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="produtoes">
+            <EntityTypeMapping TypeName="LTP2MVCDatabaseFirst2018Model.produto">
+              <MappingFragment StoreEntitySet="produto">
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="idProduo" ColumnName="idProduo" />
+                <ScalarProperty Name="nomeProduto" ColumnName="nomeProduto" />
+                <ScalarProperty Name="descricaoProduto" ColumnName="descricaoProduto" />
+                <ScalarProperty Name="precoProduto" ColumnName="precoProduto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categorias">
+            <EntityTypeMapping TypeName="LTP2MVCDatabaseFirst2018Model.categoria">
+              <MappingFragment StoreEntitySet="categoria">
+                <ScalarProperty Name="nomeCategoria" ColumnName="nomeCategoria" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
